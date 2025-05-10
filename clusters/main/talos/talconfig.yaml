@@ -41,85 +41,85 @@ nodes:
           vip:
             ip: ${VIP}
       nodeLabels:
+        main: yes
         hasGpu: yes
         plexCapable: yes
-    - hostname: k8s-worker-0
-      ipAddress: 192.168.1.70
-      controlPlane: false
-      nameservers:
-        - 1.1.1.1
-        - 8.8.8.8
-      installDiskSelector:
-        size: <= 1600GB
-      networkInterfaces:
-        # suffix is the adapter mac adres.
-        - interface: eth0
-          addresses:
-            - ${MASTER1IP_CIDR}
-          routes:
-            - network: 0.0.0.0/0
-              gateway: ${GATEWAY}
-      nodeLabels:
-        hasGpu: no
-        plexCapable: no
-    - hostname: k8s-worker-1
-      ipAddress: 192.168.1.71
-      controlPlane: false
-      nameservers:
-        - 1.1.1.1
-        - 8.8.8.8
-      installDiskSelector:
-        size: <= 1600GB
-      networkInterfaces:
-        # suffix is the adapter mac adres.
-        - interface: eth0
-          addresses:
-            - ${MASTER1IP_CIDR}
-          routes:
-            - network: 0.0.0.0/0
-              gateway: ${GATEWAY}
-      nodeLabels:
-        hasGpu: no
-        plexCapable: no
-    - hostname: k8s-worker-2
-      ipAddress: 192.168.1.72
-      controlPlane: false
-      nameservers:
-        - 1.1.1.1
-        - 8.8.8.8
-      installDiskSelector:
-        size: <= 1600GB
-      networkInterfaces:
-        # suffix is the adapter mac adres.
-        - interface: eth0
-          addresses:
-            - ${MASTER1IP_CIDR}
-          routes:
-            - network: 0.0.0.0/0
-              gateway: ${GATEWAY}
-      nodeLabels:
-        hasGpu: no
-        plexCapable: no
-    - hostname: k8s-worker-3
-      ipAddress: 192.168.1.73
-      controlPlane: false
-      nameservers:
-        - 1.1.1.1
-        - 8.8.8.8
-      installDiskSelector:
-        size: <= 1600GB
-      networkInterfaces:
-        # suffix is the adapter mac adres.
-        - interface: eth0
-          addresses:
-            - ${MASTER1IP_CIDR}
-          routes:
-            - network: 0.0.0.0/0
-              gateway: ${GATEWAY}
-      nodeLabels:
-        hasGpu: no
-        plexCapable: no
-
+    # - hostname: k8s-worker-0
+    #   ipAddress: 192.168.1.70
+    #   controlPlane: false
+    #   nameservers:
+    #     - 1.1.1.1
+    #     - 8.8.8.8
+    #   installDiskSelector:
+    #     size: <= 1600GB
+    #   networkInterfaces:
+    #     # suffix is the adapter mac adres.
+    #     - interface: eth0
+    #       addresses:
+    #         - ${MASTER1IP_CIDR}
+    #       routes:
+    #         - network: 0.0.0.0/0
+    #           gateway: ${GATEWAY}
+    #   nodeLabels:
+    #     hasGpu: no
+    #     plexCapable: no
+    # - hostname: k8s-worker-1
+    #   ipAddress: 192.168.1.71
+    #   controlPlane: false
+    #   nameservers:
+    #     - 1.1.1.1
+    #     - 8.8.8.8
+    #   installDiskSelector:
+    #     size: <= 1600GB
+    #   networkInterfaces:
+    #     # suffix is the adapter mac adres.
+    #     - interface: eth0
+    #       addresses:
+    #         - ${MASTER1IP_CIDR}
+    #       routes:
+    #         - network: 0.0.0.0/0
+    #           gateway: ${GATEWAY}
+    #   nodeLabels:
+    #     hasGpu: no
+    #     plexCapable: no
+    # - hostname: k8s-worker-2
+    #   ipAddress: 192.168.1.72
+    #   controlPlane: false
+    #   nameservers:
+    #     - 1.1.1.1
+    #     - 8.8.8.8
+    #   installDiskSelector:
+    #     size: <= 1600GB
+    #   networkInterfaces:
+    #     # suffix is the adapter mac adres.
+    #     - interface: eth0
+    #       addresses:
+    #         - ${MASTER1IP_CIDR}
+    #       routes:
+    #         - network: 0.0.0.0/0
+    #           gateway: ${GATEWAY}
+    #   nodeLabels:
+    #     hasGpu: no
+    #     plexCapable: no
+    # - hostname: k8s-worker-3
+    #   ipAddress: 192.168.1.73
+    #   controlPlane: false
+    #   nameservers:
+    #     - 1.1.1.1
+    #     - 8.8.8.8
+    #   installDiskSelector:
+    #     size: <= 1600GB
+    #   networkInterfaces:
+    #     # suffix is the adapter mac adres.
+    #     - interface: eth0
+    #       addresses:
+    #         - ${MASTER1IP_CIDR}
+    #       routes:
+    #         - network: 0.0.0.0/0
+    #           gateway: ${GATEWAY}
+    #   nodeLabels:
+    #     hasGpu: no
+    #     plexCapable: no
 controlPlane:
     patches:
         - '@./patches/controlplane.yaml'
