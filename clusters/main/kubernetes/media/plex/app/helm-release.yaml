@@ -13,6 +13,11 @@ spec:
                 kind: HelmRepository
                 name: truecharts
                 namespace: flux-system
+            install:
+                createNamespace: true
+                crds: CreateReplace
+                remediation:
+                    retries: 3
     releaseName: plex
     values:
         TZ: America/Chicago
@@ -60,7 +65,7 @@ spec:
             additionalAdvertiseURL: ""
             disableGDM: true
             requireHTTPS: false
-            serverIP: 192.168.1.160
+            serverIP: ${PLEX_IP}
         release_name: plex
         resources: {}
         securityContext:
@@ -73,7 +78,7 @@ spec:
         service:
             main:
                 enabled: true
-                loadBalancerIP: 192.168.1.160
+                loadBalancerIP: ${PLEX_IP}
                 ports:
                     main:
                         port: 32400
